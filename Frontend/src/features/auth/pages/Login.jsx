@@ -29,8 +29,12 @@ export default function Login() {
         setLoading(true);
 
         try {
-            await handleLogin(formData);
-            navigate('/');
+            const user = await handleLogin(formData);
+            if (user.role == "buyer") {
+                navigate('/');
+            } else if (user.role == "seller") {
+                navigate('/seller/dashboard');
+            }
         } catch (err) {
             setError(err?.response?.data?.message || err?.message || 'Failed to login');
         } finally {
