@@ -20,6 +20,10 @@ export const routes = createBrowserRouter([
         element: <Login />,
     },
     {
+        path: "/product/:productId",
+        element: <ProductDetail />,
+    },
+    {
         path: "/seller",
         children: [
             {
