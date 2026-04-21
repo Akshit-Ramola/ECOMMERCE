@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import authRouter from './routes/auth.routes.js';
+import cartRouter from './routes/cart.routes.js';
 import productRouter from './routes/product.routes.js';
 import cors from 'cors';
 import passport from 'passport';
@@ -42,5 +43,6 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRouter);
 app.use('/api/product', productRouter);
+app.use('/api/cart', cartRouter);
 
 export { app, connectDB };
